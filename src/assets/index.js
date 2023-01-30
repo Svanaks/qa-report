@@ -1,0 +1,1 @@
+export const hgLogo = require('./hg-logo.png')
