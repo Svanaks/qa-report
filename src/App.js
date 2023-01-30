@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import './App.css';
 import { hgLogo } from './assets'
 import jsPDF from 'jspdf';
@@ -115,6 +116,8 @@ const dataRowStyle = {
 }
 
 function App() {
+  const [inputValue, setInputValue] = useState('test');
+
   const date = "30-01-2023";
   const title = "Weekly QA Report";
   const newAutoTestsNumber = 2;
@@ -163,6 +166,7 @@ function App() {
     <div>
     <div className="mb5">
         <button onClick={printDocument}>Print</button>
+        <input type="text" value={inputValue} onChange={e => setInputValue(e.target.value)} />
       </div>
       <div id="divToPrint" style={containerStyle}>
         <div style={headerStyle}>
@@ -187,7 +191,7 @@ function App() {
 
         <ChartRow>
           <Card label="New auto tests" data="test1" width={"50%"} height={"300px"}/>
-          <Card label="test2" data="test2" width={"50%"} height={"300px"}/>
+          <Card label="test2" data={inputValue} width={"50%"} height={"300px"}/>
         </ChartRow>
         
 
