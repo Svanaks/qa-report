@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.prioCard:last-of-type {
+  border-right: 0 !important
+}
+
+.label {
+  font-weight: 600;
+}
