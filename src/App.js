@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import { hgLogo } from './assets'
+import { hgLogo, blueBackground } from './assets'
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 
@@ -31,11 +31,15 @@ const printDocument= () => {
 const containerStyle = {
     height: "297mm",
     width: "210mm",
-    background: '#e5e5e5',
+    // background: '#191c1f',
     color: 'black',
     display: "flex",
     flexDirection: "column",
   boxSizing: "border-box",
+  // backgroundImage: `url(${blueBackground})`,
+  // backgroundPosition: "revert",
+  // backgroundSize: "cover",
+  background: "rgb(25, 28, 31)"
 
 }
 
@@ -43,8 +47,11 @@ const containerStyle = {
     width: "100%",
     display: "flex",
     height: "20%",
-    backgroundColor: "black",
-    color: "white"
+    color: "white",
+    backgroundImage: `url(${blueBackground})`,
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+    borderBottom: "solid 3px #d3b363"
   }
 
   
@@ -54,21 +61,29 @@ const logoStyle = {
   width: "30%",
   height: "auto",
   maxHeight: "200px",
-  marginTop: "1.5em",
-  marginLeft: "0.5em"
+  marginTop: "0.7em",
 }
 
 
 const titleStyle = {
-  width: "50%",
   display: "flex",
   justifyContent: "center",
   // alignItems: "center",
   paddingTop: "0.5em",
   fontSize: "2em",
   fontFamily: "roboto",
-  textTransform: "uppercase",
+  textTransform: "capitalize",
   boxSizing: "border-box",
+  color: "#d3b363",
+  padding: "0 0.5em 0 0",
+}
+
+const rightWrapper = {
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "flex-end",
+  justifyContent: "center",
+  width: "100%"
 }
 
 
@@ -76,9 +91,10 @@ const dateStyle = {
   width: "20%",
   display: "flex",
   justifyContent: "flex-end",
-  padding: "1em 1em 0 0",
+  padding: "0 1em 0 0",
   boxSizing: "border-box",
   fontFamily: "roboto",
+  color: "#d3b363"
 }
 const rowStyle = {
   boxSizing: "border-box",
@@ -120,12 +136,14 @@ const chartRowStyle = {
 const cardStyle = {
   display: "flex",
   width: "94%",
-  background: "white",
+  // background: "#d3b363",
   padding: "0px 3%",
 justifyContent: "space-between",
     borderRadius: "5px",
     boxSizing: "border-box",
-    marginBottom: "10px"
+    marginBottom: "10px",
+    color: "#d3a650",
+    border: "solid 1px"
     // boxShadow: "2px 2px 0px 0px rgb(126 126 126 / 20%)"
 }
 
@@ -170,7 +188,7 @@ const mainCardStyle = {
   display: "flex",
   flexDirection: "column",
   width: "31%",
-  background: "white",
+  // background: "#d3b363",
   // margin: "0px 3%",
     borderRadius: "5px",
     padding: "4px",
@@ -178,6 +196,9 @@ const mainCardStyle = {
     alignItems: "center",
     boxSizing: "border-box",
     // boxShadow: "2px 2px 0px 0px rgb(126 126 126 / 20%)"
+
+    color: "#d3a650",
+    border: "solid 1px"
 }
 
 
@@ -282,7 +303,8 @@ const flexRow = {
 
 const campainHeader = {
   marginBottom: "30px",
-  fontSize: "1.5em"
+  fontSize: "1.5em",
+  color: "#d3a650"
 }
 
 
@@ -320,7 +342,7 @@ if (mm < 10) mm = '0' + mm;
 const formattedToday = dd + '-' + mm + '-' + yyyy;
 
   const date = formattedToday;
-  const title = "Weekly QA Report";
+  const title = "Rapport hebdo QA";
   const newAutoTestsNumber = 2;
   const newUnitTestNumber = 9;
   const bugFromCampainNumber = 7;
@@ -397,15 +419,19 @@ const formattedToday = dd + '-' + mm + '-' + yyyy;
      
       <div id="divToPrint" style={containerStyle}>
         <div style={headerStyle}>
-          <div style={logoStyle}>
+        <div style={logoStyle}>
             <img src={hgLogo} width="200px" />
           </div> 
-          <div style={titleStyle}>{title}</div>
-          <div style={dateStyle}>{date}</div>
+          <div style={rightWrapper}>
+            <div style={dateStyle}>{date}</div>
+            <div style={titleStyle}>{title}</div>
+          </div>
+         
+         
         </div>
 
         <Row1>
-          <MainCard label="Bugs hebdomadaire" data={weeklyNewBugsValue} width={"50%"} height={"50px"}/>
+          <MainCard label="Nouveaux bugs" data={weeklyNewBugsValue} width={"50%"} height={"50px"}/>
           <MainCard label="Bugs corrigés" data={weeklyFixedBugsValue} width={"50%"} height={"50px"}/>
         </Row1>
 
