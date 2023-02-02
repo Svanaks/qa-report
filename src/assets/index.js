@@ -1,2 +1,4 @@
-export const hgLogo = require('./hg-logo.png')
-export const blueBackground = require('./blueblack.jpg')
+export const hgLogo = require('./honore-logo.png')
+export const blueBackground = require('./fond.png')
+export const check = require('./check.png')
+export const bug = require('./bug.png')
