@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/react-gh-pages/static/css/main.f8062d85.css",
-    "main.js": "/react-gh-pages/static/js/main.1f7f2e61.js",
-    "static/js/703.802788e3.chunk.js": "/react-gh-pages/static/js/703.802788e3.chunk.js",
-    "static/js/9.8f978d2c.chunk.js": "/react-gh-pages/static/js/9.8f978d2c.chunk.js",
-    "static/js/787.3b36d327.chunk.js": "/react-gh-pages/static/js/787.3b36d327.chunk.js",
-    "static/media/fond.png": "/react-gh-pages/static/media/fond.b8d25f345b4f9d0eff58.png",
-    "static/media/honore-logo.png": "/react-gh-pages/static/media/honore-logo.00ac5bb817d578eb297f.png",
-    "index.html": "/react-gh-pages/index.html",
-    "main.f8062d85.css.map": "/react-gh-pages/static/css/main.f8062d85.css.map",
-    "main.1f7f2e61.js.map": "/react-gh-pages/static/js/main.1f7f2e61.js.map",
-    "703.802788e3.chunk.js.map": "/react-gh-pages/static/js/703.802788e3.chunk.js.map",
-    "9.8f978d2c.chunk.js.map": "/react-gh-pages/static/js/9.8f978d2c.chunk.js.map",
-    "787.3b36d327.chunk.js.map": "/react-gh-pages/static/js/787.3b36d327.chunk.js.map"
+    "main.css": "/qa-report/static/css/main.f8062d85.css",
+    "main.js": "/qa-report/static/js/main.72933e87.js",
+    "static/js/703.802788e3.chunk.js": "/qa-report/static/js/703.802788e3.chunk.js",
+    "static/js/9.8f978d2c.chunk.js": "/qa-report/static/js/9.8f978d2c.chunk.js",
+    "static/js/787.3b36d327.chunk.js": "/qa-report/static/js/787.3b36d327.chunk.js",
+    "static/media/fond.png": "/qa-report/static/media/fond.b8d25f345b4f9d0eff58.png",
+    "static/media/honore-logo.png": "/qa-report/static/media/honore-logo.00ac5bb817d578eb297f.png",
+    "index.html": "/qa-report/index.html",
+    "main.f8062d85.css.map": "/qa-report/static/css/main.f8062d85.css.map",
+    "main.72933e87.js.map": "/qa-report/static/js/main.72933e87.js.map",
+    "703.802788e3.chunk.js.map": "/qa-report/static/js/703.802788e3.chunk.js.map",
+    "9.8f978d2c.chunk.js.map": "/qa-report/static/js/9.8f978d2c.chunk.js.map",
+    "787.3b36d327.chunk.js.map": "/qa-report/static/js/787.3b36d327.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f8062d85.css",
-    "static/js/main.1f7f2e61.js"
+    "static/js/main.72933e87.js"
   ]
 }
