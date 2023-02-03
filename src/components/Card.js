@@ -71,14 +71,14 @@ const Card = ({ hasIconCheck, hasIconBug, labelFontWeigh, labelMargin, dataDirec
     >
       <Label labelFontWeigh={labelFontWeigh} labelMargin={labelMargin} labelFontSize={labelFontSize} labelAlignItems={labelAlignItems} displayLabel={displayLabel} labelJustifyContent={labelJustifyContent} width={labelWidth}>{label}</Label>
       <Data dataDirection={dataDirection} dataAlignItems={dataAlignItems} dataJustifyContent={dataJustifyContent} width={labelWidth} dataTextAlign={dataTextAlign} fontSize={fontSize} dataMargin={dataMargin} fontWeight={fontWeight}>{data}</Data>
-      {hasIconCheck &&
-        <Wrapper>
-          <Img src={check} width="25px" height="25px" />
-        </Wrapper>
-      }
       {hasIconBug &&
         <Wrapper>
           <Img src={bug} width="25px" height="25px" />
+        </Wrapper>
+      }
+      {hasIconCheck &&
+        <Wrapper>
+          <Img src={check} width="25px" height="25px" />
         </Wrapper>
       }
     </Container>

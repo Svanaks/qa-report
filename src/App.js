@@ -124,8 +124,8 @@ const App = () => {
         </Row>
 
         <Row height="130px" margin="30px 0px 70px 0" justifyContent="space-evenly">
-          <Card hasIconCheck={true} labelFontSize="1.2em" fontSize="3em" dataMargin="10px" dataJustifyContent="center" label="Nouveaux bugs" data={weeklyNewBugsValue} width={"31%"} height={"120%"} padding="4px" alignItems="center" boxSizing="border-box" flexDirection="column" />
-          <Card hasIconBug={true} labelFontSize="1.2em" fontSize="3em" dataMargin="10px" dataJustifyContent="center" label="Bugs corrigés" data={weeklyFixedBugsValue} width={"31%"} height={"120%"} padding="4px" alignItems="center" boxSizing="border-box" flexDirection="column" />
+          <Card hasIconBug={true} labelFontSize="1.2em" fontSize="3em" dataMargin="10px" dataJustifyContent="center" label="Nouveaux bugs" data={weeklyNewBugsValue} width={"31%"} height={"120%"} padding="4px" alignItems="center" boxSizing="border-box" flexDirection="column" />
+          <Card hasIconCheck={true} labelFontSize="1.2em" fontSize="3em" dataMargin="10px" dataJustifyContent="center" label="Bugs corrigés" data={weeklyFixedBugsValue} width={"31%"} height={"120%"} padding="4px" alignItems="center" boxSizing="border-box" flexDirection="column" />
         </Row>
 
         <Row margin="80px 0px 50px 0px" justifyContent="center" flexDirection="column" alignItems="center" boxSizing="border-box">
