@@ -14,7 +14,7 @@ export const formatDate = (today) => {
 
 export const printDocument= () => {
     const input = document.getElementById('divToPrint');
-    html2canvas(input)
+    html2canvas(input, {scale: 1})
       .then((canvas) => {
         const imgData = canvas.toDataURL('image/png');
         const pdf = new jsPDF();
