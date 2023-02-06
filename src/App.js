@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import { hgLogo, blueBackground } from './assets'
+import { hgLogo, blueBackground, trophy } from './assets'
 
 import styled from 'styled-components';
 import Row from "./components/Row";
@@ -89,20 +89,32 @@ const CampainHeader = styled.div`
   margin-bottom: 30px;
   font-size: 1.2em;
   color: #d3a650;
+  display: flex;
+  justify-content: ${props => props.justifyContent};
+  align-items: ${props => props.alignItems};
+  width: ${props => props.width};
+`
+const Img = styled.img`
+  margin: 0 10px 0px 0;
 `
 
 const App = () => {
   const [campainTestBugsPrioValue, setCampainTestBugsPrioValue] = useState(0);
   const [weeklyNewBugsValue, setWeeklyNewBugsValue] = useState(0);
+  const [openBugsValue, setOpenBugsValue] = useState(0);
   const [weeklyFixedBugsValue, setWeeklyFixedBugsValue] = useState(0);
   const [newAutoTestsNumberValue, setNewAutoTestNumberValue] = useState(0);
+  const [totalAutoTestsNumberValue, setTotalAutoTestNumberValue] = useState();
   const [newUnitTestNumberValue, setNewUnitTestNumberValue] = useState(0);
+  const [totalUnitTestNumberValue, setTotalUnitTestNumberValue] = useState();
   const [avgPercentTestsAutoPassedValue, setAvgPercentTestsAutoPassedValue] = useState("0%");
   const [numberP0Value, setNumberP0Value] = useState(0);
   const [numberP1Value, setNumberP1Value] = useState(0);
   const [numberP2Value, setNumberP2Value] = useState(0);
   const [numberP3Value, setNumberP3Value] = useState(0);
   const [numberP4Value, setNumberP4Value] = useState(0);
+  const [bestBugHunterValue, setBestBugHunterValue] = useState('Un nom');
+  const [bugHunterNumber, setBugHunterNumber] = useState(0);
 
 
   const today = new Date();
@@ -124,14 +136,15 @@ const App = () => {
         </Row>
 
         <Row height="130px" margin="30px 0px 70px 0" justifyContent="space-evenly">
-          <Card hasIconBug={true} labelFontSize="1.2em" fontSize="3em" dataMargin="10px" dataJustifyContent="center" label="Nouveaux bugs" data={weeklyNewBugsValue} width={"31%"} height={"120%"} padding="4px" alignItems="center" boxSizing="border-box" flexDirection="column" />
-          <Card hasIconCheck={true} labelFontSize="1.2em" fontSize="3em" dataMargin="10px" dataJustifyContent="center" label="Bugs corrigés" data={weeklyFixedBugsValue} width={"31%"} height={"120%"} padding="4px" alignItems="center" boxSizing="border-box" flexDirection="column" />
+          <Card hasIconBug={true} labelFontSize="1.2em" fontSize="3em" dataMargin="10px" dataJustifyContent="center" label="Nouveaux bugs" data={weeklyNewBugsValue} width={"29%"} height={"120%"} padding="4px" alignItems="center" boxSizing="border-box" flexDirection="column" />
+          <Card hasIconBug={true} labelFontSize="1.2em" fontSize="3em" dataMargin="10px" dataJustifyContent="center" label="Bugs ouverts" data={openBugsValue} width={"29%"} height={"120%"} padding="4px" alignItems="center" boxSizing="border-box" flexDirection="column" />
+          <Card hasIconCheck={true} labelFontSize="1.2em" fontSize="3em" dataMargin="10px" dataJustifyContent="center" label="Bugs corrigés" data={weeklyFixedBugsValue} width={"29%"} height={"120%"} padding="4px" alignItems="center" boxSizing="border-box" flexDirection="column" />
         </Row>
 
         <Row margin="80px 0px 50px 0px" justifyContent="center" flexDirection="column" alignItems="center" boxSizing="border-box">
-          <Card dataDirection="row" dataAlignItems="center" padding="5px 3%" label="Nouveaux tests unitaires" labelFontSize="1.1em" data={newUnitTestNumberValue} height={"50px"} flexDirection="row" margin="5px 0" dataJustifyContent="flex-end" displayLabel="flex" labelJustifyContent="flex-start" labelAlignItems="center" />
-          <Card dataDirection="row" dataAlignItems="center" padding="5px 3%" label="Nouveaux tests autos" labelFontSize="1.1em" data={newAutoTestsNumberValue} height={"50px"} flexDirection="row" margin="5px 0" dataJustifyContent="flex-end" displayLabel="flex" labelJustifyContent="flex-start" labelAlignItems="center" />
-          <Card dataDirection="row" dataAlignItems="center" padding="5px 3%" label="Stabilité tests autos" labelFontSize="1.1em" data={avgPercentTestsAutoPassedValue} height={"50px"} flexDirection="row" margin="5px 0" dataJustifyContent="flex-end" displayLabel="flex" labelJustifyContent="flex-start" labelAlignItems="center" />
+          <Card dataDirection="row" dataAlignItems="center" padding="5px 3%" label="Nouveaux tests unitaires" labelFontSize="1.1em" data={newUnitTestNumberValue} totalUnitTestNumberValue={totalUnitTestNumberValue} height={"50px"} flexDirection="row" margin="5px 0" dataJustifyContent="flex-end" displayLabel="flex" labelJustifyContent="flex-start" labelAlignItems="center" labelMargin="0px" />
+          <Card dataDirection="row" dataAlignItems="center" padding="5px 3%" label="Nouveaux tests autos" labelFontSize="1.1em" data={newAutoTestsNumberValue} totalAutoTestsNumberValue={totalAutoTestsNumberValue} height={"50px"} flexDirection="row" margin="5px 0" dataJustifyContent="flex-end" displayLabel="flex" labelJustifyContent="flex-start" labelAlignItems="center" labelMargin="0px" />
+          <Card dataDirection="row" dataAlignItems="center" padding="5px 3%" label="Stabilité tests autos" labelFontSize="1.1em" data={avgPercentTestsAutoPassedValue} height={"50px"} flexDirection="row" margin="5px 0" dataJustifyContent="flex-end" displayLabel="flex" labelJustifyContent="flex-start" labelAlignItems="center" labelMargin="0px" />
         </Row>
 
         <Row height="auto" margin="10% 0 20px 0">
@@ -146,10 +159,27 @@ const App = () => {
             </FlexRow>
           </div>
         </Row>
+        <Row height="auto" margin="0% 0 20px 0">
+          <div style={flexCol}>
+            <CampainHeader justifyContent="flex-start" width="94%" alignItems="baseline">
+              <Img src={trophy} width="40px" height="40px" />
+              
+              Meilleur chasseur de bugs sur la campagne : {bestBugHunterValue} - {bugHunterNumber}</CampainHeader>
+          </div>
+        </Row>
       </Container>
 
       <ActionsContainer>
         <Actions
+          date={date}
+          bestBugHunterValue={bestBugHunterValue}
+          setBestBugHunterValue={setBestBugHunterValue}
+          bugHunterNumber={bugHunterNumber}
+          setBugHunterNumber={setBugHunterNumber}
+          totalAutoTestsNumberValue={totalAutoTestsNumberValue}
+          setTotalAutoTestNumberValue={setTotalAutoTestNumberValue}
+          totalUnitTestNumberValue={totalUnitTestNumberValue}
+          setTotalUnitTestNumberValue={setTotalUnitTestNumberValue}
           numberP0Value={numberP0Value}
           numberP1Value={numberP1Value}
           numberP2Value={numberP2Value}
@@ -163,6 +193,8 @@ const App = () => {
           printDocument={printDocument}
           weeklyNewBugsValue={weeklyNewBugsValue}
           setWeeklyNewBugsValue={setWeeklyNewBugsValue}
+          openBugsValue={openBugsValue}
+          setOpenBugsValue={setOpenBugsValue}
           weeklyFixedBugsValue={weeklyFixedBugsValue}
           setWeeklyFixedBugsValue={setWeeklyFixedBugsValue}
           newUnitTestNumberValue={newUnitTestNumberValue}

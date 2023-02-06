@@ -52,8 +52,16 @@ const Wrapper = styled.div`
 const Img = styled.img`
   margin: 0 10px 0px 0;
 `
+const SmallTotal = styled.div`
+  display: flex;
+  font-size: 0.5em;
+  align-items: flex-end;
+  height: 100%;
+  margin-left: 2px;
+  margin-bottom: 5px;
+`
 
-const Card = ({ hasIconCheck, hasIconBug, labelFontWeigh, labelMargin, dataDirection, dataAlignItems, labelFontSize, labelAlignItems, displayLabel, labelJustifyContent, dataJustifyContent, dataTextAlign, fontSize, dataMargin, fontWeight, labelWidth, color, label, data, width, height, margin, background, boxSizing, textAlign, padding, flexDirection, alignItems, justifyContent, borderRadius }) => {
+const Card = ({ totalUnitTestNumberValue, totalAutoTestsNumberValue, hasIconCheck, hasIconBug, labelFontWeigh, labelMargin, dataDirection, dataAlignItems, labelFontSize, labelAlignItems, displayLabel, labelJustifyContent, dataJustifyContent, dataTextAlign, fontSize, dataMargin, fontWeight, labelWidth, color, label, data, width, height, margin, background, boxSizing, textAlign, padding, flexDirection, alignItems, justifyContent, borderRadius }) => {
   return (
     <Container
       width={width}
@@ -70,7 +78,15 @@ const Card = ({ hasIconCheck, hasIconBug, labelFontWeigh, labelMargin, dataDirec
       color={color}
     >
       <Label labelFontWeigh={labelFontWeigh} labelMargin={labelMargin} labelFontSize={labelFontSize} labelAlignItems={labelAlignItems} displayLabel={displayLabel} labelJustifyContent={labelJustifyContent} width={labelWidth}>{label}</Label>
-      <Data dataDirection={dataDirection} dataAlignItems={dataAlignItems} dataJustifyContent={dataJustifyContent} width={labelWidth} dataTextAlign={dataTextAlign} fontSize={fontSize} dataMargin={dataMargin} fontWeight={fontWeight}>{data}</Data>
+      <Data dataDirection={dataDirection} dataAlignItems={dataAlignItems} dataJustifyContent={dataJustifyContent} width={labelWidth} dataTextAlign={dataTextAlign} fontSize={fontSize} dataMargin={dataMargin} fontWeight={fontWeight}>
+        {data}
+      {totalUnitTestNumberValue && 
+        <SmallTotal>(/{totalUnitTestNumberValue})</SmallTotal>
+      }
+      {totalAutoTestsNumberValue && 
+        <SmallTotal>(/{totalAutoTestsNumberValue})</SmallTotal>
+      }
+      </Data>
       {hasIconBug &&
         <Wrapper>
           <Img src={bug} width="25px" height="25px" />

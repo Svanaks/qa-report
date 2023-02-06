@@ -26,6 +26,15 @@ const printButtonStyle = {
 }
 
 const Actions = ({
+  date,
+  bestBugHunterValue,
+  setBestBugHunterValue,
+  bugHunterNumber,
+  setBugHunterNumber,
+  totalAutoTestsNumberValue,
+  setTotalAutoTestNumberValue,
+  totalUnitTestNumberValue,
+  setTotalUnitTestNumberValue,
   numberP0Value,
   numberP1Value,
   numberP2Value,
@@ -37,9 +46,11 @@ const Actions = ({
   setNumberP3Value,
   setNumberP4Value,
   weeklyNewBugsValue,
+  openBugsValue,
   setWeeklyNewBugsValue,
   weeklyFixedBugsValue,
   setWeeklyFixedBugsValue,
+  setOpenBugsValue,
   newUnitTestNumberValue,
   setNewUnitTestNumberValue,
   newAutoTestsNumberValue,
@@ -62,6 +73,14 @@ const Actions = ({
         />
 
         <InputRow
+          labelFor="bugsOpen"
+          name="bugsOpen"
+          label="Nombre de bugs ouverts"
+          value={openBugsValue}
+          onChange={setOpenBugsValue}
+        />
+
+        <InputRow
           labelFor="fixedBugs"
           name="fixedBugs"
           label="Nombre de bugs corrigés"
@@ -78,11 +97,27 @@ const Actions = ({
         />
 
         <InputRow
+          labelFor="totalUnitTests"
+          name="totalUnitTests"
+          label="Nombre total de tests unitaires"
+          value={totalUnitTestNumberValue}
+          onChange={setTotalUnitTestNumberValue}
+        />
+
+        <InputRow
           labelFor="autoTestNumber"
           name="autoTestNumber"
           label="Nombre de nouveaux tests autos"
           value={newAutoTestsNumberValue}
           onChange={setNewAutoTestNumberValue}
+        />
+
+        <InputRow
+          labelFor="totalAutoTestNumber"
+          name="totalAutoTestNumber"
+          label="Nombre total de tests autos"
+          value={totalAutoTestsNumberValue}
+          onChange={setTotalAutoTestNumberValue}
         />
 
         <InputRow
@@ -126,7 +161,24 @@ const Actions = ({
             </div>
           </div>
         </div>
+
+        <InputRow
+          labelFor="bestBugHunter"
+          name="bestBugHunter"
+          label="Meilleur chasseur de bugs"
+          value={bestBugHunterValue}
+          onChange={setBestBugHunterValue}
+        />
+
+        <InputRow
+          labelFor="bugHunterNumber"
+          name="bugHunterNumber"
+          label="Nombre de bugs trouvés par meilleur tester"
+          value={bugHunterNumber}
+          onChange={setBugHunterNumber}
+        />
       </div>
+      
       <div>
         <button onClick={printDocument} style={printButtonStyle}>Exporter en PDF</button>
       </div>

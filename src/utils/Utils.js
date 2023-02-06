@@ -13,13 +13,15 @@ export const formatDate = (today) => {
 }
 
 export const printDocument= () => {
+    const today = new Date();
+    const date = formatDate(today);
     const input = document.getElementById('divToPrint');
     html2canvas(input, {scale: 1})
       .then((canvas) => {
         const imgData = canvas.toDataURL('image/png');
         const pdf = new jsPDF();
         pdf.addImage(imgData, 'JPEG', 0, 0);
-        pdf.save("download.pdf");
+        pdf.save(`rapportHebdoQA-${date}.pdf`);
       })
     ;
   }
