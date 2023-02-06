@@ -26,6 +26,8 @@ const printButtonStyle = {
 }
 
 const Actions = ({
+  hasCampain,
+  setHasCampain,
   date,
   bestBugHunterValue,
   setBestBugHunterValue,
@@ -61,6 +63,7 @@ const Actions = ({
   setCampainTestBugsPrioValue,
   printDocument
 }) => {
+  console.log('hasCampain2', hasCampain)
   return (
     <div>
       <div>
@@ -70,6 +73,7 @@ const Actions = ({
           label="Nombre de bugs hebdomadaire"
           value={weeklyNewBugsValue}
           onChange={setWeeklyNewBugsValue}
+          type="text"
         />
 
         <InputRow
@@ -77,6 +81,7 @@ const Actions = ({
           name="bugsOpen"
           label="Nombre de bugs ouverts"
           value={openBugsValue}
+          type="text"
           onChange={setOpenBugsValue}
         />
 
@@ -85,6 +90,7 @@ const Actions = ({
           name="fixedBugs"
           label="Nombre de bugs corrigés"
           value={weeklyFixedBugsValue}
+          type="text"
           onChange={setWeeklyFixedBugsValue}
         />
 
@@ -93,6 +99,7 @@ const Actions = ({
           name="newUnitTests"
           label="Nombre de nouveaux tests unitaires"
           value={newUnitTestNumberValue}
+          type="text"
           onChange={setNewUnitTestNumberValue}
         />
 
@@ -101,6 +108,7 @@ const Actions = ({
           name="totalUnitTests"
           label="Nombre total de tests unitaires"
           value={totalUnitTestNumberValue}
+          type="text"
           onChange={setTotalUnitTestNumberValue}
         />
 
@@ -109,6 +117,7 @@ const Actions = ({
           name="autoTestNumber"
           label="Nombre de nouveaux tests autos"
           value={newAutoTestsNumberValue}
+          type="text"
           onChange={setNewAutoTestNumberValue}
         />
 
@@ -117,6 +126,7 @@ const Actions = ({
           name="totalAutoTestNumber"
           label="Nombre total de tests autos"
           value={totalAutoTestsNumberValue}
+          type="text"
           onChange={setTotalAutoTestNumberValue}
         />
 
@@ -125,7 +135,17 @@ const Actions = ({
           name="avgTestStability"
           label="Pourcentage de tests automatiques qui passent"
           value={avgPercentTestsAutoPassedValue}
+          type="text"
           onChange={setAvgPercentTestsAutoPassedValue}
+        />
+
+        <InputRow
+          labelFor="hasCampain"
+          name="hasCampain"
+          label="CAMPAGNE ?"
+          hasCampain={hasCampain}
+          type="checkbox"
+          setHasCampain={setHasCampain}
         />
 
         <InputRow
@@ -133,6 +153,7 @@ const Actions = ({
           name="campainBugNumber"
           label="Bugs remontés par la campagne"
           value={campainTestBugsPrioValue}
+          type="text"
           onChange={setCampainTestBugsPrioValue}
         />
 

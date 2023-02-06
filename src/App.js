@@ -99,6 +99,8 @@ const Img = styled.img`
 `
 
 const App = () => {
+  const [hasCampain, setHasCampain] = useState();
+  console.log('hasCampain', hasCampain)
   const [campainTestBugsPrioValue, setCampainTestBugsPrioValue] = useState(0);
   const [weeklyNewBugsValue, setWeeklyNewBugsValue] = useState(0);
   const [openBugsValue, setOpenBugsValue] = useState(0);
@@ -147,6 +149,8 @@ const App = () => {
           <Card dataDirection="row" dataAlignItems="center" padding="5px 3%" label="Stabilité tests autos" labelFontSize="1.1em" data={avgPercentTestsAutoPassedValue} height={"50px"} flexDirection="row" margin="5px 0" dataJustifyContent="flex-end" displayLabel="flex" labelJustifyContent="flex-start" labelAlignItems="center" labelMargin="0px" />
         </Row>
 
+        {hasCampain &&
+        <div>
         <Row height="auto" margin="10% 0 20px 0">
           <div style={flexCol}>
             <CampainHeader>Bugs remontés par la campagne : {campainTestBugsPrioValue}</CampainHeader>
@@ -167,11 +171,15 @@ const App = () => {
               Meilleur chasseur de bugs sur la campagne : {bestBugHunterValue} - {bugHunterNumber}</CampainHeader>
           </div>
         </Row>
+        </div>
+        }
       </Container>
 
       <ActionsContainer>
         <Actions
           date={date}
+          hasCampain={hasCampain}
+          setHasCampain={setHasCampain}
           bestBugHunterValue={bestBugHunterValue}
           setBestBugHunterValue={setBestBugHunterValue}
           bugHunterNumber={bugHunterNumber}
