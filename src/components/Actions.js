@@ -26,6 +26,14 @@ const printButtonStyle = {
 }
 
 const Actions = ({
+  dataSet1,
+  setDataSet1,
+  dataSet2,
+  setDataSet2,
+  dataSet3,
+  setDataSet3,
+  dataSet4,
+  setDataSet4,
   hasCampain,
   setHasCampain,
   date,
@@ -140,6 +148,42 @@ const Actions = ({
         />
 
         <InputRow
+          labelFor="dataSet1"
+          name="dataSet1"
+          label="dataSet nouveaux bugs (Ex: 6,8,9,7,5,4,3)"
+          value={dataSet1}
+          onChange={setDataSet1}
+          type="text"
+        />
+
+        <InputRow
+          labelFor="dataSet2"
+          name="dataSet2"
+          label="dataSet bugs ouverts (Ex: 1,2,3,14,12,11,4)"
+          value={dataSet2}
+          onChange={setDataSet2}
+          type="text"
+        />
+
+        <InputRow
+          labelFor="dataSet3"
+          name="dataSet3"
+          label="dataSet bugs corrigés (Ex: 7,8,12,3,8,12,15)"
+          value={dataSet3}
+          onChange={setDataSet3}
+          type="text"
+        />
+
+        <InputRow
+          labelFor="dataSet4"
+          name="dataSet4"
+          label="dataSet stability (Ex: 78.2,79.9,87.5,54.3,91.3,87.6,84.3)"
+          value={dataSet4}
+          onChange={setDataSet4}
+          type="text"
+        />
+
+        <InputRow
           labelFor="hasCampain"
           name="hasCampain"
           label="CAMPAGNE ?"
@@ -189,6 +233,7 @@ const Actions = ({
           label="Meilleur chasseur de bugs"
           value={bestBugHunterValue}
           onChange={setBestBugHunterValue}
+          type="text"
         />
 
         <InputRow
@@ -197,6 +242,7 @@ const Actions = ({
           label="Nombre de bugs trouvés par meilleur tester"
           value={bugHunterNumber}
           onChange={setBugHunterNumber}
+          type="text"
         />
       </div>
       
